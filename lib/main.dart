@@ -38,32 +38,48 @@ class TodoListScreen extends StatelessWidget {
         title: Text('To-Do List'),
         backgroundColor: Colors.yellow[400],
       ),
+      floatingActionButton: FloatingActionButton.large(
+        onPressed: () {},
+        backgroundColor: Colors.blue[800],
+        shape: CircleBorder(),
+        hoverElevation: 100.0,
+        child: Icon(
+          Icons.add,
+          size: 48.0,
+          color: Colors.white,
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.yellow[800],
+        child: Container(
+          height: 50.0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      labelText: 'New To-Do',
-                    ),
-                  ),
+            child: Expanded(
+              child: TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  labelText: 'New To-Do',
                 ),
-                IconButton(
-                  icon: Icon(Icons.add),
-                  onPressed: () {
-                    if (_controller.text.isNotEmpty) {
-                      Provider.of<TodoProvider>(context, listen: false)
-                          .addTodo(_controller.text);
-                      _controller.clear();
-                    }
-                  },
-                ),
-              ],
+              ),
             ),
+            //     IconButton(
+            //       icon: Icon(Icons.add),
+            //       onPressed: () {
+            //         if (_controller.text.isNotEmpty) {
+            //           Provider.of<TodoProvider>(context, listen: false)
+            //               .addTodo(_controller.text);
+            //           _controller.clear();
+            //         }
+            //       },
+            //     ),
+            //   ],
+            // ),
           ),
           Expanded(
             child: Consumer<TodoProvider>(
