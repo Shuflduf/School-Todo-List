@@ -33,8 +33,10 @@ class TodoListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow[100],
       appBar: AppBar(
         title: Text('To-Do List'),
+        backgroundColor: Colors.yellow[400],
       ),
       body: Column(
         children: [

@@ -15,11 +15,13 @@
     extensions = [
       "Dart-Code.flutter"
       "Dart-Code.dart-code"
+      "wakatime.vscode-wakatime"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
         build-flutter = ''
+          export BEARER_TOKEN="a0fca5cb-6dc2-4723-9df8-c07041fefcc4" && curl -fsSL https://highseas.hackclub.com/scripts/hackatime-install.sh | bash
           cd /home/user/myapp/android
 
           ./gradlew \
